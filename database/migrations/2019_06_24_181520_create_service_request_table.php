@@ -21,6 +21,7 @@ class CreateServiceRequestTable extends Migration
       $table->enum('status',['new','ready for pickup','waiting on parts','closed']);
       $table->text('description');
       $table->timestamps();
+      $table->softDeletes();
     });
   }
 
