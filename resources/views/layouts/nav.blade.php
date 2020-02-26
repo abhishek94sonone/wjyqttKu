@@ -6,11 +6,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item {{(Request::path()=='/')? 'active':''}}">
         <a class="nav-link" href="{{ route('home') }}">Current Tickets</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Create a Ticket</a>
+      <li class="nav-item {{(Request::path()=='service')? 'active':''}}">
+        <a class="nav-link" href="/service">Create a Ticket</a>
       </li>
     </ul>
   </div>

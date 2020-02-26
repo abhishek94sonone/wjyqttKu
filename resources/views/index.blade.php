@@ -31,7 +31,18 @@
                 <td>{{ $request->client_name }}</td>
                 <td>{{ $request->status }}</td>
                 <td>{{ $request->updated_at->format('m/d/Y h:i a') }}</td>
-                <td><a href="{{ route('edit',[$request->id]) }}" class="btn btn-primary">EDIT</a></td>
+                <td>
+                  <div class="container">
+                    <div class="row">
+                      <a href="{{ route('edit',[$request->id]) }}" class="btn btn-primary pull-left">EDIT</a>&nbsp;&nbsp;
+                      <form method="post" action="/service/{{$request->id}}/delete">
+                        @csrf
+                        @method('delete')
+                        <input type="submit" class="btn btn-danger" name="submit" value="Delete">
+                      </form>
+                    </div>
+                  </div>
+                </td>
               </tr>
               @endforeach
             </tbody>
